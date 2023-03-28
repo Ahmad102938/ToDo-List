@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .head {
+            display: flex;
+            display: grid;
+            margin-top: 25px;
+        }
+        
+        .heading {
+            text-align: center;
+            background-color: #302b63;
+            color: white;
+            height: 50px;
+            justify-content: center;
+        }
+        
+        body {
+            background-color: #302b63;
+        }
+        
+        .taskedit {
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            justify-content: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        textarea {
+            background-color: #000000;
+            color: white;
+            font-size: 20px;
+            justify-content: center;
+        }
+        
+        .save1 {
+            grid-template-columns: minmax(50px, auto);
+            grid-template-rows: minmax(20px, auto);
+            margin-top: 10px;
+            text-align: center;
+            box-sizing: 25px;
+            justify-content: center;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+            cursor: pointer;
+        }
+        .text{
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <div>
+            <h1 class="heading">UPDATE YOUR TASK</h1>
+            <div class="taskedit">
+                <label for="content" style="font: 50px;">EDIT DESCRIPTION</label>
+            </div>
+            <form action="/update/{{id}}/" method="POST">
+                 {% csrf_token %} 
+                <div class="text" >
+                    <textarea name="newcontent" id="newcontent" cols="auto" rows="auto" style="margin-top: 20px;">{{content}}</textarea>
+                </div>
+                <div class="save1">
+                    <button type="submit" class="save" role="button" style="background-color: red;">SAVE CHANGES</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
